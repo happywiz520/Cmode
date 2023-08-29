@@ -1,31 +1,50 @@
 #include<stdio.h>
 #include<string.h>
+#include<stdlib.h>
+
 int main()
 {
+    FILE *aws, *wri;
+    int c, value, i, j;
+    char text[100];
+    
+    wri = fopen("quiz9.bin", "w+");
 
-FILE *aws;
-int c;
-char text[100];
-int i = 0;
+    int num[] = {1265528695, 1818584167, 1696622963, 544239479, 25970};
 
-aws = fopen("quiz9.txt","r");
+    for (i = 0; i < 5; i++) 
+    {
+        fprintf(wri, "%x", num[i]);
+    }
 
-while(1)
-{
-	c = fgetc(aws);
-	if(feof(aws))
-		break;
-		
-	text[i] = c;
-	i++;
+    fclose(wri);
 
-	printf(" %c = %x\n",c,c);
-}
-	fclose(aws);
+    aws = fopen("quiz9.bin", "r");
+    i = 0;
+    while (1)
+    {
+        c = fgetc(aws); 
+        if (feof(aws))
+            break; 
+
+        text[i] = c;
+        i++;
+    }
+    fclose(aws);
+    printf("\n");
+	for(j=0;j<i;j++)
+	{
+	printf("%c",text[j]);
+	}
 	printf("\n");
-	printf("%s",text);
-	
-	
-	
-	return(0);
+	printf("\n");
+    printf("輸出結果：");
+    for (j = 0; j < i; j += 2) 
+    {
+        char word[3] = {text[j], text[j + 1], '\0'};
+        value = (int)strtol(word, NULL, 16);
+        printf("%c", value);
+    }
+
+    return (0);
 }
