@@ -10,18 +10,18 @@ int main()
     
     wri = fopen("quiz9.bin", "w+");
 
-    int num[] = {1265528695, 1818584167, 1696622963, 544239479, 25970};
+    int num[] = {1265528695, 1818584167, 1696622963, 544239479, 25970}; //Knowledge is power 數值顯示
 
     for (i = 0; i < 5; i++) 
     {
-        fprintf(wri, "%x", num[i]);
+        fprintf(wri, "%x", num[i]);  //數值寫入檔案
     }
 
     fclose(wri);
 
-    aws = fopen("quiz9.bin", "r");
+    aws = fopen("quiz9.bin", "r"); 
     i = 0;
-    while (1)
+    while (1)                         //讀取檔案內資料
     {
         c = fgetc(aws); 
         if (feof(aws))
@@ -34,15 +34,15 @@ int main()
     printf("\n");
 	for(j=0;j<i;j++)
 	{
-	printf("%c",text[j]);
+	printf("列印讀取資料：%c",text[j]);
 	}
 	printf("\n");
 	printf("\n");
     printf("輸出結果：");
     for (j = 0; j < i; j += 2) 
     {
-        char word[3] = {text[j], text[j + 1], '\0'};
-        value = (int)strtol(word, NULL, 16);
+        char word[3] = {text[j], text[j + 1], '\0'}; //調整陣列內容，分割為4 bit(16*2)
+        value = strtol(word, NULL, 16);	             //strtol 將char轉換為int
         printf("%c", value);
     }
 
