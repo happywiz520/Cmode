@@ -10,13 +10,16 @@ int main()
     
     wri = fopen("quiz9.bin", "w+");
 
-    int num[] = {1265528695, 1818584167, 1696622963, 544239479, 25970}; //Knowledge is power 數值顯示
+    int num[] = {1265528695, 1818584167, 1696622963, 544239479, 25970}; //Knowledge is power 10位數值顯示
+    
+    printf("陣列中資料為反向：%s\n",num);			//num陣列變成反向 
+    printf("\n");
 
     for (i = 0; i < 5; i++) 
     {
-        fprintf(wri, "%x", num[i]);  //數值寫入檔案
+        fprintf(wri, "%x", num[i]);
+        printf("%d---%d = %x\n",i,num[i],num[i]);	//將數值寫入檔案 
     }
-
     fclose(wri);
 
     aws = fopen("quiz9.bin", "r"); 
@@ -32,9 +35,10 @@ int main()
     }
     fclose(aws);
     printf("\n");
+    printf("讀取檔案中資料列印：");
 	for(j=0;j<i;j++)
 	{
-	printf("列印讀取資料：%c",text[j]);
+	printf("%c",text[j]);
 	}
 	printf("\n");
 	printf("\n");
