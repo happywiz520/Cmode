@@ -5,7 +5,7 @@
 int main()
 {
     FILE *aws, *wri;
-    int c, value, i, j;
+    int c, value, i, j, k;
     char text[100];
     
     wri = fopen("quiz9.bin", "w+");
@@ -18,7 +18,7 @@ int main()
     for (i = 0; i < 5; i++) 
     {
         fprintf(wri, "%x", num[i]);
-        printf("%d---%d = %x\n",i,num[i],num[i]);	//將數值寫入檔案 
+        printf("num[%d]---%d = %x\n",i,num[i],num[i]);	//將數值寫入檔案 
     }
     fclose(wri);
 
