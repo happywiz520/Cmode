@@ -1,0 +1,13 @@
+SUBDESIGN help
+(Qa,Qb : input ;
+Fa,Fb,Fc,Fd,Fe,Ff,Fg : output;
+)
+begin
+	table
+(Qa,Qb) => (Fa,Fb,Fc,Fd,Fe,Ff,Fg);
+(0,0)   => (0,1,1,1,0,1,1);--H
+(0,1)   => (1,0,0,1,1,1,1);--E
+(1,0)   => (0,0,0,1,1,1,0);--L
+(1,1)   => (1,1,0,0,1,1,1);--P
+end table;
+end;
